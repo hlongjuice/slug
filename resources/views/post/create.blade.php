@@ -6,13 +6,14 @@
         </div>
         <div class="panel-body">
             <form action="{{route('posts.store')}}" method="post" class="form-horizontal" role="form">
+                @csrf
                 <div class="form-group">
                     <legend>Form Title</legend>
                 </div>
                 <div class="form-group">
                     <label for="post_title" class="col-sm-2 control-label">Post Title</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="post_title" placeholder="post_title">
+                        <input type="text" class="form-control" name="title" id="title" placeholder="post_title">
                     </div>
                 </div>
 

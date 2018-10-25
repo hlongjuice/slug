@@ -37,7 +37,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::create([
+           'title'=>$request->input('title')
+        ]);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -48,7 +51,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post/show',['post'=>$post]);
     }
 
     /**

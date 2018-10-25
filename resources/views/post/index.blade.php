@@ -12,7 +12,8 @@
                 <tbody>
                 @foreach($posts as $post)
                     <tr>
-                        <td>{{$post->name}}</td>
+                        <td>{{$post->title}}</td>
+                        <td><a href="{{route('posts.show',$post->id)}}">Details</a></td>
                     </tr>
                 @endforeach
                 </tbody>
