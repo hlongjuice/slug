@@ -17,14 +17,18 @@
                     <th>No</th>
                     <th>Name</th>
                     <th>Slug</th>
+                    <th>Edit</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
                     <tr>
+                        <td></td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->slug}}</td>
                         <td><a href="{{route('posts.show',$post->slug)}}">Details</a></td>
+                        <td><a href="{{route('posts.edit',$post->slug)}}">Edit</a></td>
+
                     </tr>
                 @endforeach
                 </tbody>
