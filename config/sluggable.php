@@ -59,7 +59,13 @@ return [
      *    'method' => array('Str','slug'),
      */
 
-    'method' => null,
+//    'method' => null,
+    'method' => function ($string, $separator) {
+        $string = preg_replace('/[^a-z0-9ก-๙เแ]/i', $separator, $string); // อะไรก็ตามที่ไม่ใช่ a-z 0-9 ก-ฮ สระไทยทั้งหมด และ เลขไทยให้เป็น - แทน
+        $string = preg_replace('/-+/', $separator, $string);
+        $string = preg_replace('/-$|^-/', '', $string);
+        return $string;
+    },
 
     /**
      * Separator to use when generating slugs.  Defaults to a hyphen.

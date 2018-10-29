@@ -14,4 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('posts','PostController');
+//Route::resource('บทความ','PostController');
+Route::prefix('บทความ')->group(function(){
+    Route::get('/','PostController@index')
+        ->name('posts.index');
+    Route::get('/{slug}','PostController@show')
+        ->name('posts.show');
+    Route::get('/สร้างใหม่','PostController@show')
+        ->name('posts.create');
+});
+
+Route::get('optional_param/{param?}',function($param = Null){
+    return $param;
+});
